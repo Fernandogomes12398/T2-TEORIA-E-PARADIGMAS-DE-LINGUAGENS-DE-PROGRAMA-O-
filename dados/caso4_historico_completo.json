@@ -1,0 +1,34 @@
+{
+  "matriz": {
+  "disciplinas": [
+    {"codigo": "CC0101", "nome": "Algoritmos I", "ch": 60, "prerequisitos": []},
+    {"codigo": "CC0102", "nome": "MatemÃ¡tica Discreta", "ch": 60, "prerequisitos": []},
+    {"codigo": "CC0103", "nome": "Algoritmos II", "ch": 60, "prerequisitos": ["CC0101"]},
+    {"codigo": "CC0104", "nome": "Estrutura de Dados", "ch": 60, "prerequisitos": ["CC0103"]},
+    {"codigo": "CC0105", "nome": "Arquitetura de Computadores", "ch": 60, "prerequisitos": ["CC0101"]},
+    {"codigo": "CC0106", "nome": "Teoria dos Grafos", "ch": 60, "prerequisitos": ["CC0102", "CC0104"]},
+    {"codigo": "CC0107", "nome": "Banco de Dados", "ch": 60, "prerequisitos": ["CC0104"]},
+    {"codigo": "CC0108", "nome": "Sistemas Operacionais", "ch": 60, "prerequisitos": ["CC0105", "CC0104"]},
+    {"codigo": "CC0109", "nome": "Compiladores", "ch": 60, "prerequisitos": ["CC0106", "CC0114"]},
+    {"codigo": "CC0110", "nome": "Redes de Computadores", "ch": 60, "prerequisitos": ["CC0105"]},
+    {"codigo": "CC0111", "nome": "Engenharia de Software", "ch": 60, "prerequisitos": ["CC0107"]},
+    {"codigo": "CC0112", "nome": "MÃ©todos NumÃ©ricos", "ch": 60, "prerequisitos": ["CC0102"]},
+    {"codigo": "CC0113", "nome": "Probabilidade e EstatÃ­stica", "ch": 60, "prerequisitos": ["CC0102"]},
+    {"codigo": "CC0114", "nome": "Teoria e Paradigmas de LP", "ch": 60, "prerequisitos": ["CC0103"]},
+    {"codigo": "CC0115", "nome": "Libras", "ch": 30, "prerequisitos": []}
+  ]
+},
+  "oferta": {
+  "disciplinas": [
+    {"codigo": "CC0104", "horarios": ["SEG-M", "QUA-M"]},
+    {"codigo": "CC0106", "horarios": ["SEG-T", "QUA-T"]},
+    {"codigo": "CC0107", "horarios": ["TER-T", "QUI-T"]},
+    {"codigo": "CC0110", "horarios": ["SEG-M", "QUI-T"]},
+    {"codigo": "CC0112", "horarios": ["TER-M", "QUI-M"]},
+    {"codigo": "CC0113", "horarios": ["TER-M", "SEX-M"]},
+    {"codigo": "CC0114", "horarios": ["QUA-T", "SEX-T"]},
+    {"codigo": "CC0115", "horarios": ["TER-T"]}
+  ]
+},
+  "historico": {"aprovadas": ["CC0104","CC0106","CC0107","CC0110","CC0112","CC0113","CC0114","CC0115"], "teto_ch": 240}
+}

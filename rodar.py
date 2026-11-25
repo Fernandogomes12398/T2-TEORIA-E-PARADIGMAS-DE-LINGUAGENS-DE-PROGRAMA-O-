@@ -2,10 +2,11 @@ import subprocess, json, sys, os
 
 base = os.path.dirname(os.path.abspath(__file__))
 
-# Define as duas implementações
+# Define as TRÊS implementações
 implementacoes = [
     ("imperativa", [sys.executable, os.path.join(base, "imperativa", "main.py")]),
     ("funcional",  [sys.executable, os.path.join(base, "funcional",  "main.py")]),
+    ("oo",         [os.path.join(base, "oo", "rodar_oo.bat")]),
 ]
 
 casos = {
@@ -42,11 +43,13 @@ for nome, alvo in casos.items():
             falhas += 1
             saidas[impl_nome] = None
 
-    # Compara cada uma com o gabarito
+    # Compara cada uma com o gabarito (ignorando a ordem das chaves)
     for impl_nome, obtido in saidas.items():
         if obtido is None:
             continue
-        if obtido == esperadas[nome]:
+        
+        # A MÁGICA ACONTECE AQUI: sort_keys=True ignora a ordem
+        if json.dumps(obtido, sort_keys=True) == json.dumps(esperadas[nome], sort_keys=True):
             print(f"  [{impl_nome}] OK")
         else:
             print(f"  [{impl_nome}] FALHOU (divergiu do gabarito)")
@@ -54,9 +57,9 @@ for nome, alvo in casos.items():
             print(f"    Obtido:   {json.dumps(obtido, sort_keys=True)}")
             falhas += 1
 
-    # Compara as duas entre si (garante que são idênticas)
+    # Compara as três entre si (garante que são idênticas)
     if all(s is not None for s in saidas.values()):
-        vals = list(saidas.values())
+        vals = [json.dumps(s, sort_keys=True) for s in saidas.values()]
         if all(v == vals[0] for v in vals):
             print("  [equivalência] OK")
         else:
